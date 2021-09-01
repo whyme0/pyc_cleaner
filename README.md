@@ -1,6 +1,6 @@
-<h1><span color="#b2b2b2">Py</span>thon <span color="#b2b2b2">c</span>ache <span color="#b2b2b2">cleaner</span></h1>
+<h1>Python cache cleaner</h1>
 
-<p><bold>Python cache cleaner</bold> is simple command line tool for removing cache from folders and projects</p>
+<p>Python cache cleaner is simple CLI's tool for which remove python cache from folders and projects</p>
 
 <h1>Installation</h1>
 
