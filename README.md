@@ -1,13 +1,22 @@
-<h1>Python cache cleaner</h1>
+# Python cache cleaner
 
-<p>Python cache cleaner is simple CLI's tool for which remove python cache from folders and projects</p>
+Python cache cleaner is simple CLI's tool for which remove python cache from folders and projects
 
-<h1>Installation</h1>
+# Installation
 
-<h4>Using <i>git</i></h4>
-
+## 1. Using pip
 ```
-$ git clone https://github.com/whyme0/pyc_cleaner
-$ cd ./pyc_cleaner/src/
-$ python3 ./main.py --path "PATH/TO/YOUR/PROJECT" --show_log "y"
+$ python -m venv venv
+$ source venv/bin/activate
+$ python -m pip install pyc-cleaner
 ```
+> Note that in Windows you should activate virtual enviroment this way: `\..> .\venv\Scripts\activate`
+
+# How to use
+After installing run this command in your terminal:
+```
+$ python -m python_cleaner -p "PATH/TO/PARENT_FOLDER" -sl yes
+```
+`-p` (or `--path`) flag means where program should clean cache, **if this flag not specified then program will use directory where you start running script**
+
+`-sl` (or `--show_logs`) flag means whether the program should output logs to the console (default yes)
