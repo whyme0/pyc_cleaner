@@ -7,7 +7,7 @@ import argparse
 curr_folder: str = os.getcwd()
 
 
-def clear_cache(parent_folder: str = curr_folder):
+def clear_cache(parent_folder: str = curr_folder) -> None:
     _parent_folder: str = os.path.realpath(parent_folder)
     _cache_files_counter: int = 0
     
@@ -22,7 +22,7 @@ def clear_cache(parent_folder: str = curr_folder):
     print(f'\nDeleted {_cache_files_counter} files')
 
 
-def clear_cache_silent(parent_folder: str = curr_folder):
+def clear_cache_silent(parent_folder: str = curr_folder) -> None:
     """
         Instead of default `clear_cache` function it will not show any
         status messages in console
