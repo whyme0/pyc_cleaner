@@ -1,7 +1,9 @@
 import os
 import shutil
 import argparse
+import logging
 
+from pyc_logging import setupLoggingSystem, DEFAULT_LOGGING_FORMAT
 
 # A folder where script running
 curr_folder: str = os.getcwd()
@@ -11,15 +13,15 @@ def clear_cache(parent_folder: str = curr_folder):
     _parent_folder: str = os.path.realpath(parent_folder)
     _cache_files_counter: int = 0
     
-    print(f'Searching in {_parent_folder}\n')
+    logging.info(f'Searching in {_parent_folder}\n')
     for path, dirs, files in os.walk(_parent_folder):
         folder_path: str = os.path.realpath(path)
-        
+
         if folder_path.endswith('pytest_cache') or folder_path.endswith('__pycache__'):
-            print(f'Deleting {folder_path}')
+            logging.info(f'Deleting {folder_path}')
             shutil.rmtree(folder_path)
             _cache_files_counter += 1
-    print(f'\nDeleted {_cache_files_counter} files')
+    logging.info(f'Deleted {_cache_files_counter} files')
 
 
 def clear_cache_silent(parent_folder: str = curr_folder):
@@ -65,11 +67,20 @@ def main(*args, **kwargs):
 
 
 if __name__ == '__main__':
+    setupLoggingSystem(
+        level = logging.INFO,
+        format = DEFAULT_LOGGING_FORMAT,
+        datefmt= "%d-%b-%y %H:%M:%S"
+    )
+
     args_parser = setup_argument_parser()
     passed_args = args_parser.parse_args()
 
-    main(
-        parent_folder=passed_args.path,
-        show_logs=passed_args.show_logs)
-    
-    print('Done.')
+    try:
+        main(
+            parent_folder=passed_args.path,
+            show_logs=passed_args.show_logs)
+    except Exception as e:
+        logging.exception("Exception occurred." )
+    else:
+        logging.info("Done.")
