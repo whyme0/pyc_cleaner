@@ -9,7 +9,7 @@ from pyc_logging import setupLoggingSystem, DEFAULT_LOGGING_FORMAT
 curr_folder: str = os.getcwd()
 
 
-def clear_cache(parent_folder: str = curr_folder):
+def clear_cache(parent_folder: str = curr_folder) -> None:
     _parent_folder: str = os.path.realpath(parent_folder)
     _cache_files_counter: int = 0
     
@@ -24,7 +24,7 @@ def clear_cache(parent_folder: str = curr_folder):
     logging.info(f'Deleted {_cache_files_counter} files')
 
 
-def clear_cache_silent(parent_folder: str = curr_folder):
+def clear_cache_silent(parent_folder: str = curr_folder) -> None:
     """
         Instead of default `clear_cache` function it will not show any
         status messages in console
@@ -76,6 +76,7 @@ if __name__ == '__main__':
     args_parser = setup_argument_parser()
     passed_args = args_parser.parse_args()
 
+<<<<<<< HEAD
     try:
         main(
             parent_folder=passed_args.path,
@@ -84,3 +85,11 @@ if __name__ == '__main__':
         logging.exception("Exception occurred." )
     else:
         logging.info("Done.")
+=======
+    main(
+        parent_folder=passed_args.path,
+        show_logs=passed_args.show_logs)
+    
+    print('Done.')
+
+>>>>>>> e7396bd3cbcafabafb2de0a7274f9c584f6907dd
