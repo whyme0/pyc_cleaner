@@ -76,7 +76,7 @@ if __name__ == '__main__':
     args_parser = setup_argument_parser()
     passed_args = args_parser.parse_args()
 
-<<<<<<< HEAD
+
     try:
         main(
             parent_folder=passed_args.path,
@@ -85,11 +85,9 @@ if __name__ == '__main__':
         logging.exception("Exception occurred." )
     else:
         logging.info("Done.")
-=======
+
     main(
         parent_folder=passed_args.path,
         show_logs=passed_args.show_logs)
     
     print('Done.')
-
->>>>>>> e7396bd3cbcafabafb2de0a7274f9c584f6907dd
