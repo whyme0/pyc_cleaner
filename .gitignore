@@ -2,3 +2,4 @@
 
 dist/
 src/pyc_cleaner.egg-info/
+pyc_cleaner_venv/
