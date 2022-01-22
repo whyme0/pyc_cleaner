@@ -1,6 +1,6 @@
 # Python cache cleaner
 
-Python cache cleaner is simple CLI's tool which help to remove python cache from folders and projects
+Python cache cleaner is simple CLI's tool which help to remove python cache files from folders and projects
 
 # Installation
 
